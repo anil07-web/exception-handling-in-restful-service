@@ -40,11 +40,14 @@ public class ProfileServiceImp implements ProfileService {
 
     @Override
     public Profile getProfileById(int id) throws ProfileNotFoundException {
-        if(profileRepository.findById(id).equals(null)) {
+        Optional<Profile> profileDB =this.profileRepository.findById(id);
+        if(profileDB.isPresent()){
+            return profileDB.get();
+        }else{
             throw new ProfileNotFoundException();
         }
-        return profileRepository.findById(id).get();
     }
+
 
     @Override
     public Profile updateProfile(Profile profile) throws Exception {

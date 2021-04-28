@@ -18,21 +18,21 @@ public class ProfileRepositoryTest {
     private ProfileRepository profileRepository;
 
     @Test
-    public void givemProfileToSaveShouldReturnSavedProfile(){
-    Profile profile = new Profile(1,"Anil","m",25);
-    profileRepository.save(profile);
-    Profile profile1 = profileRepository.findById(profile.getId()).get();
-    assertNotNull(profile1);
-    assertEquals(profile1.getName(),profile1.getName());
+    public void givemProfileToSaveShouldReturnSavedProfile() {
+        Profile profile = new Profile(1, "Anil", "m", 25);
+        profileRepository.save(profile);
+        Profile profile1 = profileRepository.findById(profile.getId()).get();
+        assertNotNull(profile1);
+        assertEquals(profile1.getName(), profile1.getName());
     }
 
     @Test
-    public void givemGetAllProfileToSaveShouldReturnListOfAllProfile(){
-        Profile profile = new Profile(2,"Pranay","m",25);
-        Profile profile1 = new Profile(3,"Tharun","m",27);
+    public void givemGetAllProfileToSaveShouldReturnListOfAllProfile() {
+        Profile profile = new Profile(2, "Pranay", "m", 25);
+        Profile profile1 = new Profile(3, "Tharun", "m", 27);
         profileRepository.save(profile);
         profileRepository.save(profile1);
         List<Profile> profileList = (List<Profile>) profileRepository.findAll();
-        assertEquals("Tharun",profileList.get(1).getName());
+        assertEquals("Tharun", profileList.get(1).getName());
     }
 }

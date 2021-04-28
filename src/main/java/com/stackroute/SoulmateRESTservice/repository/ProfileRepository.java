@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface ProfileRepository extends CrudRepository<Profile,Integer> {
+public interface ProfileRepository extends CrudRepository<Profile, Integer> {
     @Query("From Profile where name=:name")
     List<Profile> getAllProfilesByName(@Param("name") String name);
 
